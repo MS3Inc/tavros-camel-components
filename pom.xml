@@ -40,6 +40,26 @@
     <opentracing-tracerresolver-version>0.1.8</opentracing-tracerresolver-version>
   </properties>
 
+  <scm>
+    <connection>scm:git:https://github.com/MS3Inc/tavros-camel-components.git</connection>
+    <developerConnection>scm:git:https://github.com/MS3Inc/tavros-camel-components.git</developerConnection>
+    <url>https://github.com/MS3Inc/tavros-camel-components</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>ms3-nexus</id>
+      <name>maven-releases</name>
+      <url>https://maven.ms3-inc.com/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ms3-nexus</id>
+      <name>maven-snapshots</name>
+      <url>https://maven.ms3-inc.com/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <dependencyManagement>
     <dependencies>
       <!-- Camel BOM -->
@@ -139,6 +159,52 @@
           </excludes>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        <configuration>
+          <localCheckout>true</localCheckout>
+          <releaseProfiles>release</releaseProfiles>
+          <tagNameFormat>@{project.version}</tagNameFormat>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
