@@ -24,7 +24,7 @@
     <parent>
         <artifactId>camel-components</artifactId>
         <groupId>com.ms3-inc.tavros</groupId>
-        <version>3.7.1-002</version>
+        <version>3.7.1-003-SNAPSHOT</version>
     </parent>
 
     <artifactId>camel-opentracing</artifactId>
