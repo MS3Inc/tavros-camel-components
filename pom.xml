@@ -37,6 +37,15 @@
           <distribution>repo</distribution>
       </license>
   </licenses>
+  <developers>
+      <developer>
+          <name>Jose Montoya</name>
+          <email>jmontoya@ms3-inc.com</email>
+          <organization>MS3</organization>
+          <organizationUrl>https://ms3-inc.com</organizationUrl>
+      </developer>
+  </developers>
+
 
   <modules>
     <module>camel-tracing</module>
