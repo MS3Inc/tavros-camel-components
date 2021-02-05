@@ -26,6 +26,18 @@
   <version>3.7.1-002-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <name>Tavros Camel Components</name>
+  <description>A set of extensions to the in-tree Camel components</description>
+  <url>https://github.com/MS3Inc/tavros-camel-components</url>
+  <inceptionYear>2021</inceptionYear>
+  <licenses>
+      <license>
+          <name>Apache License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+      </license>
+  </licenses>
+
   <modules>
     <module>camel-tracing</module>
     <module>camel-opentracing</module>
