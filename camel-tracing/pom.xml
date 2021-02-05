@@ -24,7 +24,7 @@
   <parent>
     <groupId>com.ms3-inc.tavros</groupId>
     <artifactId>camel-components</artifactId>
-    <version>3.7.1-002-SNAPSHOT</version>
+    <version>3.7.1-002</version>
   </parent>
 
   <properties>

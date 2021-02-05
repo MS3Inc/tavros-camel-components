@@ -23,7 +23,7 @@
 
   <groupId>com.ms3-inc.tavros</groupId>
   <artifactId>camel-components</artifactId>
-  <version>3.7.1-002-SNAPSHOT</version>
+  <version>3.7.1-002</version>
   <packaging>pom</packaging>
 
   <name>Tavros Camel Components</name>
@@ -65,7 +65,7 @@
     <connection>scm:git:https://github.com/MS3Inc/tavros-camel-components.git</connection>
     <developerConnection>scm:git:https://github.com/MS3Inc/tavros-camel-components.git</developerConnection>
     <url>https://github.com/MS3Inc/tavros-camel-components</url>
-    <tag>HEAD</tag>
+    <tag>3.7.1-002</tag>
   </scm>
 
   <distributionManagement>
