@@ -16,6 +16,7 @@
  */
 package org.apache.camel.opentracing;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -40,6 +41,13 @@ public class OpenTracingSpanAdapter implements SpanAdapter {
         tagMap.put(Tag.MESSAGE_BUS_DESTINATION, Tags.MESSAGE_BUS_DESTINATION);
     }
 
+    public static boolean containsAuthWords(String input) {
+        String[] words = {"user", "username","uname","auth","pass","password"};
+        return Arrays.stream(words).anyMatch(input::contains);
+    }
+
+    private static String maskedValue = "xxxxxxxxxxxxxxxx";
+
     private io.opentracing.Span span;
 
     OpenTracingSpanAdapter(io.opentracing.Span span) {
@@ -62,7 +70,15 @@ public class OpenTracingSpanAdapter implements SpanAdapter {
 
     @Override
     public void setTag(Tag key, String value) {
-        span.setTag(tagMap.get(key).getKey(), value);
+
+        String valueLowerCase = value.toLowerCase();
+        if (containsAuthWords(valueLowerCase) ) {
+            span.setTag(tagMap.get(key).getKey(), maskedValue);
+        }
+        else {
+            span.setTag(tagMap.get(key).getKey(), value);
+        }
+
     }
 
     @Override
@@ -72,7 +88,14 @@ public class OpenTracingSpanAdapter implements SpanAdapter {
 
     @Override
     public void setTag(String key, String value) {
-        span.setTag(key, value);
+
+        String valueLowerCase = value.toLowerCase();
+        if (containsAuthWords(valueLowerCase) ) {
+            span.setTag(key, maskedValue);
+        }
+        else{
+            span.setTag(key,value);
+        }
     }
 
     @Override
