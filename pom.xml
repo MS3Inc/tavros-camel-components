@@ -23,7 +23,7 @@
 
   <groupId>com.ms3-inc.tavros</groupId>
   <artifactId>camel-components</artifactId>
-  <version>3.7.1-003-SNAPSHOT</version>
+  <version>3.7.1-004-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Tavros Camel Components</name>
